@@ -46,7 +46,7 @@
 
 .footerCols {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   padding: 64px 0 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -82,52 +82,6 @@
   line-height: 0.92;
 }
 
-.footerLangs {
-  display: flex;
-  gap: 8px;
-}
-.footerLang {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 10px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: transparent;
-  color: var(--paper);
-  cursor: pointer;
-  transition: all 200ms;
-}
-.footerLangActive, .footerLang:hover {
-  background: var(--paper);
-  color: var(--ink);
-  border-color: var(--paper);
-}
-
-.footerSub {
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-.footerSub input {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  padding: 10px 12px;
-  color: var(--paper);
-  font-family: var(--sans);
-  font-size: 13px;
-  outline: 0;
-}
-.footerSub input::placeholder { color: rgba(255, 255, 255, 0.5); }
-.footerSub button {
-  padding: 0 16px;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  background: transparent;
-  color: var(--paper);
-  font-family: var(--mono);
-}
-.footerSub button:hover { background: var(--blue); }
 
 .footerBaseline {
   display: flex;

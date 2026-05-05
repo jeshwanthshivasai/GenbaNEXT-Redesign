@@ -118,7 +118,8 @@ img, svg { display: block; max-width: 100%; }
   color: var(--paper);
 }
 .btn .arrow {
-  width: 14px; height: 1px;
+  flex-shrink: 0;
+  width: 16px; height: 1px;
   background: currentColor;
   position: relative;
   transition: width 200ms var(--easing);
@@ -126,14 +127,13 @@ img, svg { display: block; max-width: 100%; }
 .btn .arrow::after {
   content: "";
   position: absolute;
-  right: 0; top: 50%;
+  right: -1px; top: 50%;
   width: 6px; height: 6px;
   border-top: 1px solid currentColor;
   border-right: 1px solid currentColor;
-  transform: translateY(-50%) rotate(45deg);
-  transform-origin: right center;
+  transform: translate(0, -50%) rotate(45deg);
 }
-.btn:hover .arrow { width: 22px; }
+.btn:hover .arrow { width: 24px; }
 
 .btn-ink {
   background: var(--ink);

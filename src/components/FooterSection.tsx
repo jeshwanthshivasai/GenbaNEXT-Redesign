@@ -1,33 +1,15 @@
 'use client';
 
-import type { Lang } from './TopNav';
 import styles from '../styles/Footer.module.css';
 
-const LANGS: Lang[] = ['EN', 'JP', 'HI'];
-
 const VERTICALS = [
-  'RefNEXT',
-  'MatNEXT',
-  'EduNEXT',
-  'AirNEXT',
-  'GroNEXT',
-  'ReNEXT',
-  'RetNEXT',
-  'FoodNEXT',
-  'ChemNEXT',
-  'BatNEXT',
-  'SolNEXT',
-  'ForNEXT',
-  'TexNEXT',
-  'HOST',
+  'RefNEXT', 'MatNEXT', 'EduNEXT', 'AirNEXT',
+  'GroNEXT', 'ReNEXT', 'RetNEXT', 'FoodNEXT',
+  'ChemNEXT', 'BatNEXT', 'SolNEXT', 'ForNEXT',
+  'TexNEXT', 'HOST',
 ];
 
-interface Props {
-  lang: Lang;
-  setLang: (l: Lang) => void;
-}
-
-export default function FooterSection({ lang, setLang }: Props) {
+export default function FooterSection() {
   return (
     <footer className={styles.footer} id="footer" data-screen-label="07 Footer">
       <div className={styles.footerCta}>
@@ -64,9 +46,7 @@ export default function FooterSection({ lang, setLang }: Props) {
           <span className="mono opacity-70">— Verticals</span>
           <div className={styles.footerVerticals}>
             {VERTICALS.map((v) => (
-              <a key={v} href="#">
-                {v}
-              </a>
+              <a key={v} href="#">{v}</a>
             ))}
           </div>
         </div>
@@ -84,28 +64,6 @@ export default function FooterSection({ lang, setLang }: Props) {
           <a href="mailto:hello@genbanext.com" className="mt-2">
             hello@genbanext.com
           </a>
-        </div>
-
-        <div className={styles.footerCol}>
-          <span className="mono opacity-70">— Language</span>
-          <div className={styles.footerLangs}>
-            {LANGS.map((l) => (
-              <button
-                key={l}
-                className={`${styles.footerLang} ${lang === l ? styles.footerLangActive : ''}`}
-                onClick={() => setLang(l)}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
-          <span className="mono opacity-70 mt-3">— Subscribe</span>
-          <form className={styles.footerSub} onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="email@domain.com" />
-            <button type="submit" className="mono">
-              ↗
-            </button>
-          </form>
         </div>
       </div>
 

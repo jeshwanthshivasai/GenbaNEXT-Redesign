@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import TopNav, { type Lang } from './TopNav';
+import TopNav from './TopNav';
 import HeroSection from './HeroSection';
 import ManifestoSection from './ManifestoSection';
 import Marquee from './Marquee';
@@ -12,11 +11,9 @@ import AudienceSection from './AudienceSection';
 import FooterSection from './FooterSection';
 
 export default function ScrollExperience() {
-  const [lang, setLang] = useState<Lang>('EN');
-
   return (
     <>
-      <TopNav lang={lang} setLang={setLang} />
+      <TopNav />
       <main>
         <HeroSection />
         <ManifestoSection />
@@ -25,7 +22,7 @@ export default function ScrollExperience() {
         <PlatformsSection />
         <GeographySection />
         <AudienceSection />
-        <FooterSection lang={lang} setLang={setLang} />
+        <FooterSection />
       </main>
     </>
   );

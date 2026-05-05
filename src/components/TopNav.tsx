@@ -4,16 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/TopNav.module.css';
 
-export type Lang = 'EN' | 'JP' | 'HI';
-
-const ORDER: Lang[] = ['EN', 'JP', 'HI'];
-
-interface Props {
-  lang: Lang;
-  setLang: (l: Lang) => void;
-}
-
-export default function TopNav({ lang, setLang }: Props) {
+export default function TopNav() {
   const [scrollPct, setScrollPct] = useState(0);
 
   useEffect(() => {
@@ -25,11 +16,6 @@ export default function TopNav({ lang, setLang }: Props) {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const cycleLang = () => {
-    const idx = ORDER.indexOf(lang);
-    setLang(ORDER[(idx + 1) % ORDER.length]);
-  };
 
   return (
     <>
@@ -51,9 +37,6 @@ export default function TopNav({ lang, setLang }: Props) {
           <a href="#platforms" className={styles.navLink}>Platforms</a>
           <a href="#geography" className={styles.navLink}>Network</a>
           <a href="#footer" className={styles.navLink}>Contact</a>
-          <button onClick={cycleLang} className={`${styles.navLink} ${styles.langDivider}`}>
-            {lang}
-          </button>
         </div>
       </nav>
     </>

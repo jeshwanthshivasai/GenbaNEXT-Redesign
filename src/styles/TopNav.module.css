@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 40px;
+  background: rgba(250, 250, 247, 0.88);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border-bottom: 1px solid var(--rule-soft);
 }
 
 .brandMark {
@@ -20,14 +24,11 @@
   object-fit: contain;
 }
 
-/* Nav links use mix-blend so they stay readable over both paper and ink sections.
-   Scoped to .right so the colored logo isn't affected. */
 .right {
   display: flex;
   gap: 28px;
   align-items: center;
-  mix-blend-mode: difference;
-  color: white;
+  color: var(--ink);
 }
 
 .navLink {
@@ -50,10 +51,6 @@
   background: currentColor;
 }
 
-.langDivider {
-  border-left: 1px solid currentColor;
-  padding-left: 28px;
-}
 
 .scrollProgress {
   position: fixed;
