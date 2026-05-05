@@ -6,8 +6,8 @@ import styles from '../styles/Manifesto.module.css';
 const LINES = [
   { en: 'Genba ', em: 'is the actual place.', jp: '現場' },
   { en: 'Where ', em: 'things are made,', jp: '造' },
-  { en: 'where ', em: 'things are unmade,', jp: '解' },
-  { en: 'where ', em: 'things begin again.', jp: '再' },
+  { en: 'Where ', em: 'things are unmade,', jp: '解' },
+  { en: 'Where ', em: 'things begin again.', jp: '再' },
 ];
 
 export default function ManifestoSection() {
@@ -62,16 +62,16 @@ export default function ManifestoSection() {
           <div className={styles.manifestoFootCol}>
             <span className="mono opacity-70">— Genba (現場)</span>
             <p className={styles.manifestoNote}>
-              The Japanese principle of going to the source — to where the work is happening — to understand it.
+              The Japanese principle of going to the source where the work is happening.
               GenbaNEXT extends the principle to digital: software that lives where the materials, the machines, the
               people are.
             </p>
           </div>
           <div className={`${styles.manifestoFootCol} ${styles.manifestoFootColRight}`}>
-            <span className="mono opacity-70">— Output</span>
+            <span className="mono opacity-70">— Mission</span>
             <p className={styles.manifestoNote}>
-              Fourteen platforms, one operating thesis: the linear economy ends. Materials, products and infrastructure
-              are recovered, refurbished, redistributed — at the source.
+              Fourteen Platforms, One Operating Thesis: End of a Linear Economy and Embrace the Circular Economy. Materials, products and infrastructure
+              are recovered, recycled and reused.
             </p>
           </div>
         </div>
