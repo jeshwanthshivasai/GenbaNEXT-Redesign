@@ -64,11 +64,6 @@ export default function HeroSection() {
         className={styles.heroStack}
         style={{ transform: `translateY(${-heroY}px)`, opacity: heroOpacity }}
       >
-        <div className={styles.heroEyebrow}>
-          <span className="mono">— Index 00 / Hero</span>
-          <span className="mono">A Corporate Hub for the Circular Economy</span>
-        </div>
-
         <h1 className={`${styles.heroTitle} display`}>
           <span className={styles.line}>Always be</span>
           <span className={styles.line}>
@@ -76,32 +71,21 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <div className={styles.heroFoot}>
-          <div className="col gap-1">
-            <span className="mono opacity-70">A B2B SaaS network</span>
-            <span className={styles.heroTag}>14 verticals · 2 hubs · 1 loop.</span>
-          </div>
-          <div className={styles.heroActions}>
-            <a className="btn btn-ink" href="#manifesto">
-              <span>Enter Genba</span>
-              <span className="arrow"></span>
-            </a>
-            <a className="btn" href="#platforms">
-              <span>14 Platforms</span>
-              <span className="arrow"></span>
-            </a>
-          </div>
+        <div className={styles.heroActions}>
+          <a className="btn btn-ink" href="#manifesto">
+            <span>Enter Genba</span>
+            <span className="arrow"></span>
+          </a>
+          <a className="btn" href="#platforms">
+            <span>14 Platforms</span>
+            <span className="arrow"></span>
+          </a>
         </div>
       </div>
 
       <div className={`${styles.heroMeta} ${styles.heroMetaBl}`}>
         <span className="mono opacity-70">FR/2026.05.04</span>
         <span className="mono opacity-70">v 1.0.0</span>
-      </div>
-      <div className={`${styles.heroMeta} ${styles.heroMetaBr}`}>
-        <a className={`mono ${styles.heroScrollCue}`} href="#manifesto">
-          SCROLL · 滚动 · スクロール ↓
-        </a>
       </div>
 
       <div className={styles.heroRing} aria-hidden="true">

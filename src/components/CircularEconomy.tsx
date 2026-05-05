@@ -37,7 +37,6 @@ export default function CircularEconomy() {
     <section className={styles.circular} ref={ref} id="loop" data-screen-label="03 Circular Economy">
       <div className={styles.circularSticky}>
         <div className={styles.circularHead}>
-          <span className="section-label">Index 02 / The Loop</span>
           <span className="mono opacity-70">CIRCULAR ECONOMY · 循环经济</span>
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from '../styles/TopNav.module.css';
 
 export type Lang = 'EN' | 'JP' | 'HI';
@@ -35,9 +36,15 @@ export default function TopNav({ lang, setLang }: Props) {
       <div className={styles.scrollProgress} style={{ width: `${scrollPct}%` }} />
 
       <nav className={styles.topnav}>
-        <a href="#" className={styles.brandMark}>
-          <span className={styles.brandGlyph} />
-          <span>GenbaNEXT</span>
+        <a href="#" className={styles.brandMark} aria-label="GenbaNEXT — home">
+          <Image
+            src="/logo.png"
+            alt="GenbaNEXT"
+            width={140}
+            height={32}
+            priority
+            className={styles.logo}
+          />
         </a>
         <div className={styles.right}>
           <a href="#manifesto" className={styles.navLink}>Thesis</a>
@@ -49,17 +56,6 @@ export default function TopNav({ lang, setLang }: Props) {
           </button>
         </div>
       </nav>
-
-      <div className={`${styles.chromeRail} ${styles.chromeRailLeft}`}>
-        <span className={styles.railText}>CIRCULAR ECONOMY · 14 PLATFORMS</span>
-        <span className={styles.railText}>
-          {Math.round(scrollPct).toString().padStart(3, '0')} / 100
-        </span>
-      </div>
-      <div className={`${styles.chromeRail} ${styles.chromeRailRight}`}>
-        <span className={styles.railText}>TOKYO · MUMBAI</span>
-        <span className={styles.railText}>v 1.0.0</span>
-      </div>
     </>
   );
 }

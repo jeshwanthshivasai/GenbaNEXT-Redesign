@@ -31,7 +31,6 @@ export default function ManifestoSection() {
     <section className={styles.manifesto} id="manifesto" ref={ref} data-screen-label="02 Manifesto">
       <div className={styles.manifestoSticky}>
         <div className={styles.manifestoHead}>
-          <span className="section-label">Index 01 / Thesis</span>
           <span className="mono opacity-70">現場 GENBA · ON-SITE</span>
         </div>
 

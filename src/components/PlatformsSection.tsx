@@ -73,7 +73,6 @@ export default function PlatformsSection() {
       <div className={styles.platformsSticky}>
         <div className={styles.platformsHead}>
           <div className="col gap-2">
-            <span className="section-label">Index 03 / Network</span>
             <h2 className={`${styles.platformsHeadTitle} display`}>
               Fourteen platforms.
               <br />

@@ -97,9 +97,10 @@
 }
 
 .circularTitle {
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(40px, 5vw, 76px);
   letter-spacing: -0.04em;
   line-height: 0.95;
+  white-space: nowrap;
 }
 
 .circularDesc {

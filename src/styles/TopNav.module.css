@@ -5,11 +5,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 16px 40px;
+}
+
+.brandMark {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: auto;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Nav links use mix-blend so they stay readable over both paper and ink sections.
+   Scoped to .right so the colored logo isn't affected. */
+.right {
+  display: flex;
+  gap: 28px;
+  align-items: center;
   mix-blend-mode: difference;
   color: white;
 }
-.right { display: flex; gap: 28px; align-items: center; }
 
 .navLink {
   font-family: var(--mono);
@@ -36,58 +55,6 @@
   padding-left: 28px;
 }
 
-.brandMark {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--sans);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  font-size: 16px;
-}
-
-.brandGlyph {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  border: 1.5px solid currentColor;
-  position: relative;
-}
-.brandGlyph::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  border: 1.5px solid currentColor;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  transform: rotate(45deg);
-}
-
-.chromeRail {
-  position: fixed;
-  z-index: 50;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 80px 0;
-  top: 0; bottom: 0;
-}
-.chromeRailLeft { left: 16px; }
-.chromeRailRight { right: 16px; }
-
-.railText {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  color: var(--ink);
-  opacity: 0.5;
-}
-
 .scrollProgress {
   position: fixed;
   top: 0; left: 0;
@@ -98,21 +65,17 @@
   transition: width 100ms linear;
 }
 
-@media (max-width: 1180px) {
-  .chromeRail { display: none; }
-}
-
 @media (max-width: 1024px) {
-  .topnav { padding: 18px 28px; }
+  .topnav { padding: 14px 28px; }
   .right { gap: 18px; }
   .navLink { font-size: 10px; }
+  .logo { height: 24px; }
 }
 
 @media (max-width: 720px) {
-  .topnav { padding: 14px 18px; }
+  .topnav { padding: 12px 18px; }
   .right { gap: 12px; }
   .navLink:not(:last-child) { display: none; }
   .langDivider { border-left: 0; padding-left: 0; }
-  .brandMark { font-size: 14px; }
-  .brandGlyph { width: 18px; height: 18px; }
+  .logo { height: 22px; }
 }

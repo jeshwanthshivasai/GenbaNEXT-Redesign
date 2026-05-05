@@ -31,7 +31,6 @@ export default function AudienceSection() {
   return (
     <section className={styles.audience} id="audience" data-screen-label="06 For Whom">
       <div className={styles.audienceHead}>
-        <span className="section-label">Index 05 / For Whom</span>
         <h2 className={`${styles.audienceHeadTitle} display`}>
           Built for the
           <br />

@@ -29,7 +29,6 @@ export default function GeographySection() {
   return (
     <section className={styles.geography} id="geography" data-screen-label="05 Geography">
       <div className={styles.geographyHead}>
-        <span className="section-label">Index 04 / Geography</span>
         <h2 className={`${styles.geographyHeadTitle} display`}>
           Two hubs.
           <br />
@@ -41,6 +40,14 @@ export default function GeographySection() {
 
       <div className={styles.geographyStage}>
         <div className={styles.geographyMap}>
+          {/* Continent outlines (monochrome blue), behind everything else */}
+          <img
+            src="/world-map.svg"
+            alt=""
+            aria-hidden="true"
+            className={styles.geographyWorldImg}
+          />
+
           <svg viewBox="0 0 100 50" preserveAspectRatio="none" className={styles.geographyGridSvg}>
             {Array.from({ length: 9 }).map((_, i) => (
               <line
