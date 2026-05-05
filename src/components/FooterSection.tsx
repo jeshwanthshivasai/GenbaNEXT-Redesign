@@ -2,10 +2,18 @@
 
 import styles from '../styles/Footer.module.css';
 
+const INDEX_LINKS = [
+  { n: '01', label: 'Thesis',    href: '#manifesto' },
+  { n: '02', label: 'Loop',      href: '#loop' },
+  { n: '03', label: 'Network',   href: '#platforms' },
+  { n: '04', label: 'Geography', href: '#geography' },
+  { n: '05', label: 'For Whom',  href: '#audience' },
+];
+
 const VERTICALS = [
   'RefNEXT', 'MatNEXT', 'EduNEXT', 'AirNEXT',
-  'GroNEXT', 'ReNEXT', 'RetNEXT', 'FoodNEXT',
-  'ChemNEXT', 'BatNEXT', 'SolNEXT', 'ForNEXT',
+  'GroNEXT', 'ReNEXT',  'RetNEXT', 'FoodNEXT',
+  'ChemNEXT','BatNEXT', 'SolNEXT', 'ForNEXT',
   'TexNEXT', 'HOST',
 ];
 
@@ -33,36 +41,56 @@ export default function FooterSection() {
       </div>
 
       <div className={styles.footerCols}>
+        {/* ── Index ── */}
         <div className={styles.footerCol}>
           <span className="mono opacity-70">— Index</span>
-          <a href="#manifesto">01 / Thesis</a>
-          <a href="#loop">02 / Loop</a>
-          <a href="#platforms">03 / Network</a>
-          <a href="#geography">04 / Geography</a>
-          <a href="#audience">05 / For Whom</a>
+          {INDEX_LINKS.map(({ n, label, href }) => (
+            <a key={n} href={href} className={styles.indexRow}>
+              <span className={styles.indexNum}>{n}</span>
+              <span className={styles.indexLabel}>{label}</span>
+              <span className={styles.indexArrow}>→</span>
+            </a>
+          ))}
         </div>
 
+        {/* ── Verticals ── */}
         <div className={styles.footerCol}>
           <span className="mono opacity-70">— Verticals</span>
           <div className={styles.footerVerticals}>
             {VERTICALS.map((v) => (
-              <a key={v} href="#">{v}</a>
+              <a key={v} href="#" className={styles.verticalRow}>
+                {v}
+              </a>
             ))}
           </div>
         </div>
 
-        <div className={styles.footerCol}>
+        {/* ── Hubs — dominant feature column ── */}
+        <div className={styles.footerHubCol}>
           <span className="mono opacity-70">— Hubs</span>
-          <div className={styles.footerHub}>
-            <span className={styles.footerHubLabel}>Tokyo</span>
-            <span className="mono opacity-70">N 35.6762° E 139.6503°</span>
+
+          <div className={styles.hubEntry}>
+            <span className={styles.hubDot} />
+            <div className={styles.hubCityRow}>
+              <span className={styles.hubCityName}>Tokyo</span>
+              <span className={styles.hubCityScript}>東京</span>
+            </div>
+            <span className={styles.hubCoords}>N 35.6762° · E 139.6503°</span>
           </div>
-          <div className={styles.footerHub}>
-            <span className={styles.footerHubLabel}>Mumbai</span>
-            <span className="mono opacity-70">N 19.0760° E 72.8777°</span>
+
+          <div className={styles.hubRule} />
+
+          <div className={styles.hubEntry}>
+            <span className={styles.hubDot} />
+            <div className={styles.hubCityRow}>
+              <span className={styles.hubCityName}>Mumbai</span>
+              <span className={styles.hubCityScript}>मुंबई</span>
+            </div>
+            <span className={styles.hubCoords}>N 19.0760° · E 72.8777°</span>
           </div>
-          <a href="mailto:hello@genbanext.com" className="mt-2">
-            hello@genbanext.com
+
+          <a href="mailto:info@genbanext.com" className={styles.hubEmail}>
+            info@genbanext.com
           </a>
         </div>
       </div>
