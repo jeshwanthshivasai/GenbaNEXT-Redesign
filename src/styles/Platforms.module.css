@@ -1,0 +1,211 @@
+.platforms {
+  position: relative;
+  height: 600vh;
+  background: var(--ink);
+  color: var(--paper);
+}
+.platformsSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 80px 0 40px;
+}
+
+.platformsHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 40px 32px;
+  gap: 32px;
+}
+.platformsHeadTitle {
+  font-size: clamp(48px, 7vw, 96px);
+}
+.platformsHeadRight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 200px;
+}
+.platformsProgress {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.platformsProgress > div {
+  height: 100%;
+  background: var(--paper);
+  transition: width 80ms linear;
+}
+
+.platformsTrackWrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.platformsTrack {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  align-items: stretch;
+  padding: 24px 40px;
+  will-change: transform;
+  transition: transform 60ms linear;
+}
+
+.platformCard {
+  flex-shrink: 0;
+  width: 36vw;
+  min-width: 380px;
+  max-width: 520px;
+  background: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 300ms var(--easing), background 300ms var(--easing);
+}
+.isActive {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding-bottom: 12px;
+}
+
+.status {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+.statusLIVE { color: var(--paper); border-color: rgba(255, 255, 255, 0.6); }
+.statusBETA { color: rgba(255, 255, 255, 0.7); }
+.statusSOON { color: rgba(255, 255, 255, 0.4); border-color: rgba(255, 255, 255, 0.2); }
+
+.platformJp {
+  font-size: 200px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.06);
+  position: absolute;
+  right: 16px;
+  bottom: 100px;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.8;
+  font-family: var(--sans);
+}
+.isActive .platformJp {
+  color: rgba(27, 79, 224, 0.5);
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 48px 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.platformCode {
+  font-size: clamp(40px, 4vw, 64px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.platformDomain {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.platformDesc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 420px;
+}
+
+.cardFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 16px;
+}
+
+.markets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.marketsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.market {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 3px 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platformLink {
+  color: var(--paper);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 200ms;
+}
+.platformLink:hover { color: #6F90FF; }
+
+.tail {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px;
+}
+
+.tailNum {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 120px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 1180px) {
+  .platformCard { width: 44vw; min-width: 340px; }
+}
+
+@media (max-width: 1024px) {
+  .platformsSticky { padding: 64px 0 32px; }
+  .platformsHead { padding: 0 28px 24px; }
+  .platformCard { width: 60vw; min-width: 320px; padding: 24px; }
+  .platformJp { font-size: 140px; bottom: 80px; }
+}
+
+@media (max-width: 720px) {
+  .platforms { height: 500vh; }
+  .platformsSticky { padding: 56px 0 24px; }
+  .platformsHead { padding: 0 18px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .platformsHeadRight { width: 100%; min-width: 0; }
+  .platformCard { width: 82vw; min-width: 260px; padding: 20px; }
+  .platformCode { font-size: clamp(32px, 8vw, 44px); }
+  .platformJp { font-size: 100px; bottom: 70px; right: 8px; }
+  .cardFoot { flex-direction: column; align-items: flex-start; gap: 16px; }
+}

@@ -1,0 +1,108 @@
+.manifesto {
+  position: relative;
+  height: 360vh;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+
+.manifestoSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px;
+  overflow: hidden;
+}
+
+.manifestoHead {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 16px;
+}
+
+.manifestoBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.manifestoLine {
+  display: grid;
+  grid-template-columns: 80px 120px 1fr;
+  align-items: baseline;
+  gap: 32px;
+  opacity: 0.18;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--easing), transform 600ms var(--easing);
+}
+.isActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+.isDone {
+  opacity: 0.35;
+}
+
+.manifestoNum {
+  align-self: flex-start;
+  padding-top: 32px;
+}
+
+.manifestoJp {
+  font-size: clamp(64px, 9vw, 140px);
+  font-weight: 300;
+  color: var(--blue);
+  line-height: 0.9;
+}
+
+.manifestoEn {
+  font-size: clamp(48px, 7vw, 120px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.manifestoFoot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.manifestoFootCol {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.manifestoFootColRight {
+  justify-self: end;
+  text-align: right;
+  align-items: flex-end;
+}
+.manifestoNote {
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 1024px) {
+  .manifestoSticky { padding: 64px 28px 32px; }
+  .manifestoFoot { grid-template-columns: 1fr; gap: 24px; }
+  .manifestoFootColRight { justify-self: start; text-align: left; align-items: flex-start; }
+}
+
+@media (max-width: 720px) {
+  .manifesto { height: 320vh; }
+  .manifestoSticky { padding: 56px 18px 24px; }
+  .manifestoLine { grid-template-columns: 32px 56px 1fr; gap: 12px; }
+  .manifestoNum { font-size: 9px; padding-top: 12px; }
+  .manifestoJp { font-size: clamp(36px, 11vw, 64px); }
+  .manifestoEn { font-size: clamp(26px, 8vw, 48px); }
+  .manifestoNote { font-size: 13px; }
+}

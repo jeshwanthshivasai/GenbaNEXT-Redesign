@@ -1,0 +1,112 @@
+.audience {
+  position: relative;
+  background: var(--paper);
+  padding: 120px 40px;
+  border-top: 1px solid var(--rule);
+}
+.audienceHead {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 32px;
+  margin-bottom: 64px;
+}
+.audienceHeadTitle {
+  font-size: clamp(40px, 5.5vw, 80px);
+}
+
+.audienceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.audienceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  border: 1px solid var(--rule-soft);
+  border-right: 0;
+  position: relative;
+  transition: background 300ms var(--easing), color 300ms var(--easing);
+}
+.audienceCard:last-child { border-right: 1px solid var(--rule-soft); }
+.audienceCard:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.audienceCard:hover .audienceJp { color: rgba(27, 79, 224, 1); }
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 12px;
+  opacity: 0.95;
+}
+.audienceJp {
+  font-size: 80px;
+  line-height: 0.9;
+  font-weight: 300;
+  color: var(--blue);
+  font-family: var(--sans);
+  letter-spacing: -0.04em;
+}
+
+.audienceWho {
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.audiencePitch {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.audienceBullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.audienceBullets li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  border-top: 1px solid currentColor;
+  padding-top: 8px;
+  opacity: 0.7;
+}
+
+.audienceCta {
+  align-self: flex-start;
+  margin-top: auto;
+  border-color: currentColor;
+}
+.audienceCard:hover .audienceCta { color: var(--paper); border-color: var(--paper); }
+.audienceCard:hover .audienceCta:hover { background: var(--paper); color: var(--ink); }
+
+@media (max-width: 1180px) {
+  .audienceCard { padding: 32px; }
+}
+
+@media (max-width: 1024px) {
+  .audience { padding: 96px 28px; }
+  .audienceGrid { grid-template-columns: 1fr; }
+  .audienceCard { border-right: 1px solid var(--rule-soft); border-bottom: 0; }
+  .audienceCard + .audienceCard { border-top: 0; }
+  .audienceCard:last-child { border-right: 1px solid var(--rule-soft); }
+}
+
+@media (max-width: 720px) {
+  .audience { padding: 72px 18px; }
+  .audienceCard { padding: 24px; gap: 18px; }
+  .audienceJp { font-size: 56px; }
+  .audienceWho { font-size: clamp(28px, 9vw, 40px); }
+}
