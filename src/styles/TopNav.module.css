@@ -41,14 +41,14 @@
   border: 0;
   cursor: pointer;
   color: inherit;
-  padding: 0;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
 }
-.navLink:hover::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -4px;
-  height: 1px;
-  background: currentColor;
+.navLink:hover {
+  background: var(--blue);
+  color: #fff;
 }
 
 
