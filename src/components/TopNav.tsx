@@ -33,13 +33,13 @@ export default function TopNav() {
           />
         </a>
         <div className={styles.right}>
-          <a href="#about" className={styles.navLink}>About</a>
-          <a href="#loop" className={styles.navLink}>The Loop</a>
-          <a href="#verticals" className={styles.navLink}>Verticals</a>
-          <a href="#network" className={styles.navLink}>Network</a>
-          <a href="#customer" className={styles.navLink}>Customers</a>
-          <a href="#future" className={styles.navLink}>Future</a>
-          <a href="#footer" className={styles.navLink}>Contact</a>
+          <a href="#about" className={styles.navLink}>/About</a>
+          <a href="#loop" className={styles.navLink}>/Loop</a>
+          <a href="#verticals" className={styles.navLink}>/Verticals</a>
+          <a href="#network" className={styles.navLink}>/Network</a>
+          <a href="#customer" className={styles.navLink}>/Customers</a>
+          <a href="#future" className={styles.navLink}>/Future</a>
+          <a href="#footer" className={styles.navLink}>/Contact</a>
         </div>
       </nav>
     </>
