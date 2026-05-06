@@ -61,7 +61,6 @@ export default function GeographySection() {
 
       <div className={styles.geographyStage}>
         <div className={styles.geographyMap}>
-          {/* Continent outlines (monochrome blue), behind everything else */}
           <img
             src="/world-map.svg"
             alt=""
@@ -94,9 +93,7 @@ export default function GeographySection() {
                 opacity="0.15"
               />
             ))}
-            {/* Middle X-axis (visually centered) */}
             <line x1="0" y1="50" x2="100" y2="50" stroke="var(--ink)" strokeWidth="0.15" opacity="0.4" strokeDasharray="0.6 0.6" />
-            {/* Middle Y-axis (matched to X-axis visually considering 2.09 aspect ratio) */}
             <line x1="50" y1="0" x2="50" y2="100" stroke="var(--ink)" strokeWidth="0.07" opacity="0.4" strokeDasharray="1.25 1.25" />
           </svg>
 
@@ -165,7 +162,7 @@ export default function GeographySection() {
             </div>
           </div>
 
-          <div className={styles.legendGrid} style={{ alignItems: 'start' }}>
+          <div className={styles.legendGrid} style={{ alignItems: 'start', gap: '32px 16px' }}>
             <div className={styles.legendCol}>
               <span className="mono opacity-70">— MatNEXT Market</span>
               <div className={styles.legendItem}>

@@ -18,7 +18,7 @@
   gap: 16px;
 }
 .footerCtaMarkTitle {
-  font-size: clamp(80px, 16vw, 240px);
+  font-size: clamp(88px, 17vw, 264px);
   line-height: 0.85;
 }
 .footerCtaMarkTitle em { color: var(--blue); }
@@ -231,7 +231,7 @@
 
 @media (max-width: 720px) {
   .footer { padding: 72px 18px 24px; }
-  .footerCtaMarkTitle { font-size: clamp(56px, 22vw, 120px); }
+  .footerCtaMarkTitle { font-size: clamp(60px, 18vw, 136px); }
   .footerCta { padding-bottom: 40px; }
   .footerCtaRow { flex-direction: column; }
   .footerCtaRow :global(.btn) { width: 100%; justify-content: space-between; }

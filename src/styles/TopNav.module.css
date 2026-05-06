@@ -10,6 +10,11 @@
   backdrop-filter: blur(16px) saturate(1.5);
   -webkit-backdrop-filter: blur(16px) saturate(1.5);
   border-bottom: 1px solid var(--rule-soft);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+.topnavHidden {
+  transform: translateY(-110%);
 }
 
 .brandMark {
@@ -24,6 +29,7 @@
   object-fit: contain;
 }
 
+/* ── Desktop nav links ── */
 .right {
   display: flex;
   gap: 28px;
@@ -51,7 +57,7 @@
   color: #fff;
 }
 
-
+/* ── Scroll progress bar ── */
 .scrollProgress {
   position: fixed;
   top: 0; left: 0;
@@ -62,6 +68,85 @@
   transition: width 100ms linear;
 }
 
+/* ── Hamburger button — hidden on desktop ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 80;
+  width: 40px;
+  height: 40px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.hamburgerOpen span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburgerOpen span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburgerOpen span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Mobile full-screen menu ── */
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  padding-top: 61px; /* nav height */
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.mobileMenuVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobileMenuInner {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 18px 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mobileMenuLink {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  opacity: 0;
+  transform: translateY(6px);
+}
+.mobileMenuVisible .mobileMenuLink {
+  opacity: 1;
+  transform: translateY(0);
+  transition: color 0.2s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.mobileMenuLink:hover { color: var(--blue); padding-left: 6px; }
+.mobileMenuLink:last-child { border-bottom: none; }
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .topnav { padding: 14px 28px; }
   .right { gap: 18px; }
@@ -71,8 +156,8 @@
 
 @media (max-width: 720px) {
   .topnav { padding: 12px 18px; }
-  .right { gap: 12px; }
-  .navLink:not(:last-child) { display: none; }
-  .langDivider { border-left: 0; padding-left: 0; }
+  /* Hide desktop links, show hamburger */
+  .right { display: none; }
+  .hamburger { display: flex; }
   .logo { height: 22px; }
 }

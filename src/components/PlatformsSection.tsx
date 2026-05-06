@@ -18,7 +18,7 @@ interface Platform {
 }
 
 const PLATFORMS: Platform[] = [
-  { id: '01', code: 'RefNEXT', domain: 'Refrigerant Lifecycle', jp: '冷媒', desc: 'AC + refrigerant lifecycle management. The first vertical, the deepest vertical.', markets: ['JP', 'VN', 'ID', 'IN', 'AE', 'KE', 'TZ', 'NG'], status: 'LIVE', website: 'https://refnext-global.vercel.app/', app: 'https://refnext-in.genbanext.com/login' },
+  { id: '01', code: 'RefNEXT', domain: 'Refrigerant Lifecycle', jp: '冷媒', desc: 'AC + refrigerant lifecycle management. The first vertical, the deepest vertical.', markets: ['IN', 'VN', 'ID', 'MY', 'TH', 'SG'], status: 'LIVE', website: 'https://refnext-global.vercel.app/', app: 'https://refnext-in.genbanext.com/login' },
   { id: '02', code: 'MatNEXT', domain: 'Materials', jp: '材', desc: 'Steel · aluminium · plastic · paper · glass · rubber. Circular, by default.', markets: ['IN'], status: 'LIVE', website: 'https://matnext-app.vercel.app/', app: 'https://matnext-in.genbanext.com/' },
   { id: '03', code: 'EduNEXT', domain: 'Education', jp: '学', desc: 'Aggregation and management for the education domain.', markets: ['JP'], status: 'BETA' },
   { id: '04', code: 'AirNEXT', domain: 'Air Conditioners', jp: '空', desc: 'Complete AC lifecycle — install, service, recover, retire.', markets: ['GLOBAL'], status: 'LIVE', app: 'https://airnext.genbanext.com/' },
@@ -42,13 +42,17 @@ export default function PlatformsSection() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [progress, setProgress] = useState(0);
   const [travel, setTravel] = useState(0);
+  const [cardW, setCardW] = useState(0);
 
   useEffect(() => {
     const measure = () => {
       if (!trackRef.current) return;
-      const trackW = trackRef.current.scrollWidth;
+      const trackEl = trackRef.current;
+      const trackW = trackEl.scrollWidth;
       const viewW = window.innerWidth;
       setTravel(Math.max(0, trackW - viewW + 40));
+      const firstCard = trackEl.querySelector('article');
+      if (firstCard) setCardW((firstCard as HTMLElement).offsetWidth);
     };
     const onScroll = () => {
       if (!ref.current) return;
@@ -67,8 +71,11 @@ export default function PlatformsSection() {
     };
   }, []);
 
+  const CARD_GAP = 24;
   const translateXPx = progress * travel;
-  const activeIdx = Math.min(PLATFORMS.length - 1, Math.floor(progress * PLATFORMS.length));
+  const activeIdx = cardW > 0
+    ? Math.min(PLATFORMS.length - 1, Math.round(translateXPx / (cardW + CARD_GAP)))
+    : Math.min(PLATFORMS.length - 1, Math.floor(progress * PLATFORMS.length));
 
   return (
     <section className={styles.platforms} ref={ref} id="platforms" data-screen-label="04 Platforms">
@@ -89,6 +96,12 @@ export default function PlatformsSection() {
               <div style={{ width: `${progress * 100}%` }} />
             </div>
           </div>
+        </div>
+
+        {/* Mobile scroll hint — fades once user scrolls into the carousel */}
+        <div className={`${styles.scrollHint} ${progress > 0.02 ? styles.scrollHintHidden : ''}`}>
+          <span className="mono">scroll to explore</span>
+          <span className={styles.scrollHintArrow}>↓</span>
         </div>
 
         <div className={styles.platformsTrackWrap}>

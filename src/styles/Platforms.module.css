@@ -100,7 +100,7 @@
   color: rgba(255, 255, 255, 0.06);
   position: absolute;
   right: 16px;
-  bottom: 100px;
+  bottom: 90px;
   pointer-events: none;
   user-select: none;
   line-height: 0.8;
@@ -205,13 +205,52 @@
   .platformJp { font-size: 140px; bottom: 80px; }
 }
 
+/* ── Mobile scroll hint ── */
+.scrollHint {
+  display: none; /* hidden on desktop */
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
 @media (max-width: 720px) {
   .platforms { height: 500vh; }
   .platformsSticky { padding: 56px 0 24px; }
   .platformsHead { padding: 0 18px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
   .platformsHeadRight { width: 100%; min-width: 0; }
-  .platformCard { width: 82vw; min-width: 260px; padding: 20px; }
+  /* 74vw card + 18px left pad = peek of ~39px from next card — clearly visible */
+  .platformCard { width: 74vw; min-width: 260px; padding: 20px; }
+  .platformsTrack { padding: 16px 18px; }
   .platformCode { font-size: clamp(32px, 8vw, 44px); }
-  .platformJp { font-size: 100px; bottom: 70px; right: 8px; }
+  .platformJp { font-size: 100px; bottom: 110px; right: 8px; }
   .cardFoot { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  /* Scroll hint — shown only on mobile */
+  .scrollHint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px 12px;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .scrollHint .mono {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    color: var(--paper);
+  }
+  .scrollHintArrow {
+    font-size: 12px;
+    color: var(--blue);
+    animation: bounceDown 1.2s ease-in-out infinite;
+    display: inline-block;
+  }
+  .scrollHintHidden {
+    opacity: 0;
+  }
 }

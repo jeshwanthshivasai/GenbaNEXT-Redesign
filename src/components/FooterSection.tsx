@@ -27,7 +27,7 @@ export default function FooterSection() {
       <div className={styles.footerCta}>
         <div className={styles.footerCtaMark}>
           <span className={`${styles.footerCtaMarkTitle} display`}>
-            Genba<em className="italic" style={{ fontWeight: 300 }}>NEXT.</em>
+            Genba<em className="italic" style={{ fontWeight: 300 }}>NEXT</em>
           </span>
           <span className="mono opacity-70">現場 · ON-SITE · आगे</span>
         </div>

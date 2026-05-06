@@ -114,12 +114,27 @@
 @media (max-width: 720px) {
   .hero { min-height: 100svh; padding-top: 64px; }
   .heroStack { padding: 0 18px; gap: 24px; }
-  .heroMetaTl, .heroMetaBl { left: 18px; }
-  .heroMetaTr { right: 18px; }
-  .heroMetaTl, .heroMetaTr { top: 60px; }
+  .heroMetaBl { left: 18px; }
   .heroMetaBl { bottom: 24px; }
   .heroTitle { font-size: clamp(48px, 16vw, 80px); }
   .heroActions { width: 100%; flex-direction: column; }
   .heroActions :global(.btn) { width: 100%; justify-content: space-between; }
   .heroKanji { font-size: clamp(280px, 80vw, 480px); opacity: 0.12 !important; }
+  /* Stack Tokyo (TL) and Mumbai (TR) vertically, both left-aligned */
+  .heroMetaTl {
+    top: 60px;
+    left: 18px;
+  }
+  .heroMetaTr {
+    top: 96px;
+    left: 18px;
+    right: auto;
+    align-items: flex-start;
+    text-align: left;
+  }
+  /* Shrink coordinate text so it fits on one line at 375px */
+  .heroCoord {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
 }

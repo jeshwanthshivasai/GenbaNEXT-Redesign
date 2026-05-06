@@ -143,4 +143,6 @@
   .geoMarkerLabel { font-size: 8px; padding: 1px 3px; }
   .geoMarkerDot { width: 6px; height: 6px; }
   .hub .geoMarkerDot { width: 10px; height: 10px; }
+  /* Only show JP + IN hub markers on mobile — all others hidden */
+  .geoMarker:not(.hub) { display: none; }
 }

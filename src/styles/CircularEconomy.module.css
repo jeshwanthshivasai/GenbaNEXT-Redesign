@@ -159,14 +159,15 @@
 
 @media (max-width: 720px) {
   .circular { height: 500vh; }
-  .circularSticky { padding: 56px 18px 24px; }
-  .circularStage { gap: 20px; }
-  .circularDialWrap { max-width: 240px; }
+  .circularSticky { padding: 56px 18px 16px; }
+  .circularStage { gap: 16px; align-content: center; padding-top: 0; }
+  .circularDialWrap { max-width: 292px; margin-top: 0; }
+  .circularContent { margin-top: 0; gap: 10px; }
   .circularStaticLabels { display: none; }
-  .circularTitle { font-size: clamp(32px, 9vw, 48px); }
-  .circularDesc { font-size: 14px; }
-  .circularCounterNum { font-size: 48px; }
-  .circularMeta { grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 16px; }
+  .circularTitle { font-size: clamp(28px, 8vw, 44px); }
+  .circularDesc { font-size: 13px; line-height: 1.45; }
+  .circularCounterNum { font-size: 40px; }
+  .circularMeta { grid-template-columns: 1fr; gap: 24px; padding-top: 16px; }
   .circularMeta > div { gap: 4px; }
   .metaValue { font-size: 18px; }
 }

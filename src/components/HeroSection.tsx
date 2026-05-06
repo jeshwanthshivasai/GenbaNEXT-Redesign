@@ -41,11 +41,11 @@ export default function HeroSection() {
       </div>
 
       <div className={`${styles.heroMeta} ${styles.heroMetaTl}`}>
-        <span className="mono opacity-70">[ N 35.6762° E 139.6503° ] TOKYO</span>
+        <span className={`mono opacity-70 ${styles.heroCoord}`}>[ N 35.6762° E 139.6503° ] TOKYO</span>
         <span className="mono">{tokyo ? `${fmt(tokyo)} JST` : '—— JST'}</span>
       </div>
       <div className={`${styles.heroMeta} ${styles.heroMetaTr}`}>
-        <span className="mono opacity-70">[ N 19.0760° E 72.8777° ] MUMBAI</span>
+        <span className={`mono opacity-70 ${styles.heroCoord}`}>[ N 19.0760° E 72.8777° ] MUMBAI</span>
         <span className="mono">{mumbai ? `${fmt(mumbai)} IST` : '—— IST'}</span>
       </div>
 
