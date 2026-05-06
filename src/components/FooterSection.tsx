@@ -3,17 +3,19 @@
 import styles from '../styles/Footer.module.css';
 
 const INDEX_LINKS = [
-  { n: '01', label: 'Thesis',    href: '#manifesto' },
-  { n: '02', label: 'Loop',      href: '#loop' },
-  { n: '03', label: 'Network',   href: '#platforms' },
-  { n: '04', label: 'Geography', href: '#geography' },
-  { n: '05', label: 'For Whom',  href: '#audience' },
+  { n: '01', label: 'Thesis', href: '#manifesto' },
+  { n: '02', label: 'Loop', href: '#loop' },
+  { n: '03', label: 'Platforms', href: '#platforms' },
+  { n: '04', label: 'Network', href: '#network' },
+  { n: '05', label: 'For Whom', href: '#for-whom' },
+  { n: '06', label: 'Future', href: '#future' },
+  { n: '07', label: 'Contact', href: '#contact' },
 ];
 
 const VERTICALS = [
   'RefNEXT', 'MatNEXT', 'EduNEXT', 'AirNEXT',
-  'GroNEXT', 'ReNEXT',  'RetNEXT', 'FoodNEXT',
-  'ChemNEXT','BatNEXT', 'SolNEXT', 'ForNEXT',
+  'GroNEXT', 'ReNEXT', 'RetNEXT', 'FoodNEXT',
+  'ChemNEXT', 'BatNEXT', 'SolNEXT', 'ForNEXT',
   'TexNEXT', 'HOST',
 ];
 
