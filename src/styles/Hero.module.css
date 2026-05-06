@@ -36,8 +36,10 @@
 
 .heroKanji {
   position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
+  right: 320px;
+  top: 50%;
+  --kanji-x: 0px;
+  text-align: center;
   font-family: var(--sans);
   font-weight: 200;
   font-size: clamp(220px, 38vw, 480px);
@@ -106,6 +108,7 @@
   .heroMetaTl, .heroMetaBl { left: 28px; }
   .heroMetaTr { right: 28px; }
   .heroRing { display: none; }
+  .heroKanji { right: auto; left: 50%; --kanji-x: -50%; }
 }
 
 @media (max-width: 720px) {

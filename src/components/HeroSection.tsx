@@ -52,12 +52,12 @@ export default function HeroSection() {
       <div
         className={styles.heroKanji}
         style={{
-          transform: `translate(-50%, calc(-50% + ${heroY * 0.5}px))`,
+          transform: `translate(var(--kanji-x, 0px), calc(-50% + ${heroY * 0.5}px))`,
           opacity: heroOpacity * 0.18,
         }}
         aria-hidden="true"
       >
-        現場
+        現<br />場
       </div>
 
       <div
