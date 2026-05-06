@@ -13,23 +13,25 @@ interface Platform {
   desc: string;
   markets: string[];
   status: Status;
+  website?: string;
+  app?: string;
 }
 
 const PLATFORMS: Platform[] = [
-  { id: '01', code: 'RefNEXT', domain: 'Refrigerant Lifecycle', jp: '冷媒', desc: 'AC + refrigerant lifecycle management. The first vertical, the deepest vertical.', markets: ['JP', 'VN', 'ID', 'IN', 'AE', 'KE', 'TZ', 'NG'], status: 'LIVE' },
-  { id: '02', code: 'MatNEXT', domain: 'Materials', jp: '材', desc: 'Steel · aluminium · plastic · paper · glass · rubber. Circular, by default.', markets: ['GLOBAL'], status: 'LIVE' },
-  { id: '03', code: 'EduNEXT', domain: 'Education', jp: '学', desc: 'Aggregation and management for the education domain.', markets: ['IN', 'JP'], status: 'LIVE' },
-  { id: '04', code: 'AirNEXT', domain: 'Air Conditioners', jp: '空', desc: 'Complete AC lifecycle — install, service, recover, retire.', markets: ['GLOBAL'], status: 'LIVE' },
-  { id: '05', code: 'GroNEXT', domain: 'Healthcare', jp: '医', desc: 'Aggregation and management in the healthcare domain.', markets: ['IN'], status: 'LIVE' },
-  { id: '06', code: 'ReNEXT', domain: 'Real Estate', jp: '宅', desc: 'Aggregation and management for the real-estate domain.', markets: ['IN', 'JP'], status: 'BETA' },
-  { id: '07', code: 'RetNEXT', domain: 'Retail', jp: '店', desc: 'Aggregation and management of retail stores.', markets: ['IN'], status: 'BETA' },
-  { id: '08', code: 'FoodNEXT', domain: 'Food + Agriculture', jp: '食', desc: 'Circular economy of food and agriculture management.', markets: ['GLOBAL'], status: 'BETA' },
+  { id: '01', code: 'RefNEXT', domain: 'Refrigerant Lifecycle', jp: '冷媒', desc: 'AC + refrigerant lifecycle management. The first vertical, the deepest vertical.', markets: ['JP', 'VN', 'ID', 'IN', 'AE', 'KE', 'TZ', 'NG'], status: 'LIVE', website: 'https://refnext-global.vercel.app/', app: 'https://refnext-in.genbanext.com/login' },
+  { id: '02', code: 'MatNEXT', domain: 'Materials', jp: '材', desc: 'Steel · aluminium · plastic · paper · glass · rubber. Circular, by default.', markets: ['IN'], status: 'LIVE', website: 'https://matnext-app.vercel.app/', app: 'https://matnext-in.genbanext.com/' },
+  { id: '03', code: 'EduNEXT', domain: 'Education', jp: '学', desc: 'Aggregation and management for the education domain.', markets: ['JP'], status: 'BETA' },
+  { id: '04', code: 'AirNEXT', domain: 'Air Conditioners', jp: '空', desc: 'Complete AC lifecycle — install, service, recover, retire.', markets: ['GLOBAL'], status: 'LIVE', app: 'https://airnext.genbanext.com/' },
+  { id: '05', code: 'GroNEXT', domain: 'Healthcare', jp: '医', desc: 'Aggregation and management in the healthcare domain.', markets: ['IN'], status: 'LIVE', app: 'https://gronext.genbanext.com/login' },
+  { id: '06', code: 'ReNEXT', domain: 'Real Estate', jp: '宅', desc: 'Aggregation and management for the real-estate domain.', markets: ['IN'], status: 'BETA', app: 'https://renext-app.com/login' },
+  { id: '07', code: 'RetNEXT', domain: 'Retail', jp: '店', desc: 'Aggregation and management of retail stores.', markets: ['US'], status: 'LIVE', app: 'https://retnext.genbanext.com/login' },
+  { id: '08', code: 'FoodNEXT', domain: 'Food + Agriculture', jp: '食', desc: 'Circular economy of food and agriculture management.', markets: ['GLOBAL'], status: 'SOON' },
   { id: '09', code: 'ChemNEXT', domain: 'Chemicals', jp: '化', desc: 'Circular economy of chemicals.', markets: ['GLOBAL'], status: 'SOON' },
   { id: '10', code: 'BatNEXT', domain: 'Batteries', jp: '電', desc: 'Circular economy of batteries.', markets: ['GLOBAL'], status: 'SOON' },
   { id: '11', code: 'SolNEXT', domain: 'Solar', jp: '陽', desc: 'Circular economy of solar panels and solar products.', markets: ['GLOBAL'], status: 'SOON' },
   { id: '12', code: 'ForNEXT', domain: 'Forests + Wood', jp: '森', desc: 'Management of forests and the wood cycle.', markets: ['GLOBAL'], status: 'SOON' },
-  { id: '13', code: 'TexNEXT', domain: 'Textiles', jp: '繊', desc: 'Circular economy in the textile industry.', markets: ['GLOBAL'], status: 'SOON' },
-  { id: '14', code: 'HOST', domain: 'Hostel Oversight', jp: '宿', desc: 'Transforming Hostel Oversight & Supervision Digitally.', markets: ['IN'], status: 'LIVE' },
+  { id: '13', code: 'TexNEXT', domain: 'Textiles', jp: '繊', desc: 'Circular economy in the textile industry.', markets: ['IN'], status: 'BETA' },
+  { id: '14', code: 'HOST', domain: 'Hostel Oversight', jp: '宿', desc: 'Transforming Hostel Oversight & Supervision Digitally.', markets: ['IN'], status: 'LIVE', app: 'https://host.genbanext.com/login' },
 ];
 
 const statusClass = (s: Status) =>
@@ -126,9 +128,18 @@ export default function PlatformsSection() {
                       ))}
                     </div>
                   </div>
-                  <a className={`${styles.platformLink} mono`} href="#">
-                    Visit ↗
-                  </a>
+                  <div className={styles.platformLinks}>
+                    {p.website && (
+                      <a className={`${styles.platformLink} mono`} href={p.website} target="_blank" rel="noopener noreferrer">
+                        Website ↗
+                      </a>
+                    )}
+                    {p.app && (
+                      <a className={`${styles.platformLink} mono`} href={p.app} target="_blank" rel="noopener noreferrer">
+                        App ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}

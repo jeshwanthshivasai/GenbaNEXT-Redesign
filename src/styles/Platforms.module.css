@@ -164,6 +164,12 @@
   text-transform: uppercase;
 }
 
+.platformLinks {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
 .platformLink {
   color: var(--paper);
   border-bottom: 1px solid currentColor;
