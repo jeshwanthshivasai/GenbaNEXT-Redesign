@@ -3,9 +3,9 @@
 import styles from '../styles/Footer.module.css';
 
 const INDEX_LINKS = [
-  { n: '01', label: 'Thesis', href: '#manifesto' },
-  { n: '02', label: 'Loop', href: '#loop' },
-  { n: '03', label: 'Platforms', href: '#platforms' },
+  { n: '01', label: 'About', href: '#about' },
+  { n: '02', label: 'The Loop', href: '#loop' },
+  { n: '03', label: 'Verticals', href: '#verticals' },
   { n: '04', label: 'Network', href: '#network' },
   { n: '05', label: 'For Whom', href: '#for-whom' },
   { n: '06', label: 'Future', href: '#future' },
