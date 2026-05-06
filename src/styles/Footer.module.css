@@ -4,6 +4,7 @@
   padding: 120px 40px 40px;
 }
 
+/* ── CTA header ── */
 .footerCta {
   display: flex;
   flex-direction: column;
@@ -21,10 +22,8 @@
   line-height: 0.85;
 }
 .footerCtaMarkTitle em { color: var(--blue); }
-.footerCtaRow {
-  display: flex;
-  gap: 12px;
-}
+.footerCtaRow { display: flex; gap: 12px; }
+
 .footer :global(.btn) {
   border-color: rgba(255, 255, 255, 0.4);
   color: var(--paper);
@@ -44,36 +43,105 @@
   border-color: var(--paper);
 }
 
-/* ── Columns grid ── */
+/* ── Middle section wrapper ── */
 .footerCols {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 0;
-  align-items: start;
-  padding: 64px 0 48px;
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ── Left column: Index + Verticals stacked ── */
-.footerLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 52px;
-  padding-right: 64px;
+/* ────────────────────────────────────────────
+   Tier 1 — Hubs, full width, side by side
+   ──────────────────────────────────────────── */
+.hubsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 56px 0 48px;
 }
 
-/* Each labeled section inside the left column */
-.footerSection {
+.hubEntry {
   display: flex;
   flex-direction: column;
-  gap: 0;
-}
-/* Increased gap between the "— Label" heading and the rows below */
-.footerSection > .mono {
-  margin-bottom: 24px;
+  gap: 12px;
 }
 
-/* ── Index rows ── */
+/* Right hub — separated by a left border */
+.hubEntryRight {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 56px;
+}
+
+/* Pulse dot */
+.hubDot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 3px var(--ink), 0 0 0 4px var(--blue);
+  position: relative;
+}
+.hubDot::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+  opacity: 0.4;
+  animation: hubPulse 2.4s ease-out infinite;
+}
+@keyframes hubPulse {
+  0%   { transform: scale(0.7); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.hubCityRow {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.hubCityName {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  font-size: clamp(52px, 6.5vw, 88px);
+  line-height: 0.88;
+}
+.hubCityScript {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(22px, 2.8vw, 36px);
+  letter-spacing: -0.02em;
+  opacity: 0.35;
+  line-height: 1;
+}
+.hubCoords {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* ────────────────────────────────────────────
+   Tier 2 — Index | divider | Verticals
+   ──────────────────────────────────────────── */
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 48px 0;
+}
+
+/* Index column */
+.indexCol {
+  display: flex;
+  flex-direction: column;
+  padding-right: 56px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+.indexCol > :global(.mono) { margin-bottom: 24px; }
+
 .indexRow {
   display: flex;
   align-items: center;
@@ -111,127 +179,25 @@
 }
 .indexRow:hover .indexArrow { opacity: 1; }
 
-/* ── Verticals list ── */
-.verticalRow {
-  display: block;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 0 8px 14px;
-  font-size: 13px;
-  letter-spacing: -0.01em;
-  opacity: 0.6;
-  transition: opacity 200ms, color 200ms;
-  position: relative;
-}
-.verticalRow::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: var(--blue);
-  opacity: 0;
-  transition: opacity 200ms;
-}
-.verticalRow:hover { opacity: 1; color: #8FA8FF; }
-.verticalRow:hover::before { opacity: 1; }
-
-/* ── Hub feature column ── */
-.footerHubCol {
+/* Verticals column */
+.verticalsCol {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
   padding-left: 56px;
 }
-.footerHubCol > .mono { margin-bottom: 4px; }
+.verticalsCol > :global(.mono) { margin-bottom: 24px; }
 
-.hubEntry {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.verticalsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+  row-gap: 0;
 }
-
-/* Pulse dot */
-.hubDot {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 0 3px var(--ink), 0 0 0 4px var(--blue);
-  position: relative;
-  flex-shrink: 0;
-}
-.hubDot::after {
-  content: "";
-  position: absolute;
-  inset: -9px;
-  border-radius: 50%;
-  border: 1px solid var(--blue);
-  opacity: 0.4;
-  animation: hubPulse 2.4s ease-out infinite;
-}
-@keyframes hubPulse {
-  0%   { transform: scale(0.7); opacity: 0.6; }
-  100% { transform: scale(2.2); opacity: 0; }
+/* Label doesn't stretch — arrow sits flush after the text */
+.verticalsGrid .indexLabel {
+  flex: 0 0 auto;
 }
 
-.hubCityRow {
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  line-height: 0.88;
-}
-.hubCityName {
-  font-family: var(--sans);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  font-size: clamp(52px, 6.5vw, 88px);
-  line-height: 0.88;
-}
-.hubCityScript {
-  font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(22px, 2.8vw, 36px);
-  letter-spacing: -0.02em;
-  opacity: 0.35;
-  line-height: 1;
-}
-.hubCoords {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.55;
-}
-
-.hubRule {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
-  margin: 6px 0;
-}
-
-/* Email — ruled row, sits flush after Mumbai, no floating gap */
-.hubEmail {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-top: 12px;
-  padding-top: 20px;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  opacity: 0.65;
-  transition: opacity 200ms, color 200ms;
-  text-decoration: none;
-}
-.hubEmail:hover { opacity: 1; color: #8FA8FF; }
-
-.hubEmailArrow {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--blue);
-  flex-shrink: 0;
-}
 
 /* ── Baseline ── */
 .footerBaseline {
@@ -245,31 +211,22 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .footer { padding: 96px 28px 32px; }
-  .footerCols {
-    grid-template-columns: 1fr;
-    padding: 48px 0 32px;
-    gap: 48px;
-  }
-  .footerLeft { padding-right: 0; gap: 40px; }
-  .footerHubCol {
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-left: 0;
-    padding-top: 40px;
-    display: grid;
+
+  .hubsRow {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "label label"
-      "hub1  hub2"
-      "email email";
-    gap: 24px 48px;
-    align-items: start;
+    padding: 40px 0 36px;
+    gap: 0;
   }
-  .footerHubCol > .mono { grid-area: label; margin-bottom: 0; }
-  .hubEntry:first-of-type { grid-area: hub1; }
-  .hubEntry:last-of-type  { grid-area: hub2; }
-  .hubRule { display: none; }
-  .hubEmail { grid-area: email; margin-top: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+  .hubEntryRight { padding-left: 32px; }
+
+  .bottomRow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 0 32px;
+  }
+  .indexCol { border-right: 0; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 40px; }
+  .verticalsCol { padding-left: 0; }
+  .verticalsGrid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -278,16 +235,15 @@
   .footerCta { padding-bottom: 40px; }
   .footerCtaRow { flex-direction: column; }
   .footerCtaRow :global(.btn) { width: 100%; justify-content: space-between; }
-  .footerCols { padding: 40px 0 24px; gap: 40px; }
-  .footerHubCol {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 32px;
-  }
-  .hubRule { display: block; }
+
+  .hubsRow { grid-template-columns: 1fr; gap: 40px; padding: 36px 0 32px; }
+  .hubEntryRight { border-left: 0; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px; }
+
   .hubCityName { font-size: clamp(44px, 13vw, 72px); }
   .hubCityScript { font-size: clamp(18px, 5vw, 28px); }
-  .footerLeft { gap: 36px; }
+
+  .bottomRow { padding: 32px 0 24px; }
+  .verticalsGrid { grid-template-columns: 1fr 1fr; }
+
   .footerBaseline { flex-direction: column; gap: 8px; }
 }
