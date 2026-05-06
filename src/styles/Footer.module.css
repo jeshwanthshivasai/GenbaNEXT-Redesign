@@ -44,22 +44,34 @@
   border-color: var(--paper);
 }
 
+/* ── Columns grid ── */
 .footerCols {
   display: grid;
-  grid-template-columns: 0.7fr 0.9fr 1.6fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 0;
+  align-items: start;
   padding: 64px 0 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Index + Verticals columns */
-.footerCol {
+/* ── Left column: Index + Verticals stacked ── */
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  padding-right: 64px;
+}
+
+/* Each labeled section inside the left column */
+.footerSection {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-right: 40px;
 }
-.footerCol > .mono { margin-bottom: 16px; }
+/* Increased gap between the "— Label" heading and the rows below */
+.footerSection > .mono {
+  margin-bottom: 24px;
+}
 
 /* ── Index rows ── */
 .indexRow {
@@ -84,13 +96,11 @@
   flex-shrink: 0;
   width: 38px;
 }
-
 .indexLabel {
   font-size: 14px;
   flex: 1;
   letter-spacing: -0.01em;
 }
-
 .indexArrow {
   font-family: var(--mono);
   font-size: 12px;
@@ -102,11 +112,6 @@
 .indexRow:hover .indexArrow { opacity: 1; }
 
 /* ── Verticals list ── */
-.footerVerticals {
-  display: flex;
-  flex-direction: column;
-}
-
 .verticalRow {
   display: block;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -135,8 +140,9 @@
   flex-direction: column;
   gap: 20px;
   border-left: 1px solid rgba(255, 255, 255, 0.15);
-  padding-left: 48px;
+  padding-left: 56px;
 }
+.footerHubCol > .mono { margin-bottom: 4px; }
 
 .hubEntry {
   display: flex;
@@ -144,7 +150,7 @@
   gap: 10px;
 }
 
-/* Pulse dot — mirrors the map marker */
+/* Pulse dot */
 .hubDot {
   display: block;
   width: 10px;
@@ -190,7 +196,6 @@
   opacity: 0.35;
   line-height: 1;
 }
-
 .hubCoords {
   font-family: var(--mono);
   font-size: 11px;
@@ -202,20 +207,33 @@
 .hubRule {
   height: 1px;
   background: rgba(255, 255, 255, 0.12);
-  margin: 4px 0;
+  margin: 6px 0;
 }
 
+/* Email — ruled row, sits flush after Mumbai, no floating gap */
 .hubEmail {
-  margin-top: auto;
-  font-size: 13px;
-  opacity: 0.55;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 12px;
+  padding-top: 20px;
+  font-size: 15px;
   letter-spacing: -0.01em;
-  transition: opacity 200ms;
-  padding-top: 8px;
+  opacity: 0.65;
+  transition: opacity 200ms, color 200ms;
+  text-decoration: none;
 }
 .hubEmail:hover { opacity: 1; color: #8FA8FF; }
 
+.hubEmailArrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--blue);
+  flex-shrink: 0;
+}
 
+/* ── Baseline ── */
 .footerBaseline {
   display: flex;
   justify-content: space-between;
@@ -224,30 +242,34 @@
   gap: 16px;
 }
 
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .footer { padding: 96px 28px 32px; }
   .footerCols {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
     padding: 48px 0 32px;
+    gap: 48px;
   }
-  /* Hubs spans both columns on medium screens */
+  .footerLeft { padding-right: 0; gap: 40px; }
   .footerHubCol {
-    grid-column: 1 / -1;
     border-left: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-left: 0;
-    padding-top: 32px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 32px;
-    align-items: flex-start;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "label label"
+      "hub1  hub2"
+      "email email";
+    gap: 24px 48px;
+    align-items: start;
   }
-  .footerHubCol > .mono { flex-basis: 100%; }
-  .hubEntry { flex: 1; min-width: 220px; }
+  .footerHubCol > .mono { grid-area: label; margin-bottom: 0; }
+  .hubEntry:first-of-type { grid-area: hub1; }
+  .hubEntry:last-of-type  { grid-area: hub2; }
   .hubRule { display: none; }
-  .hubEmail { flex-basis: 100%; margin-top: 0; }
-  .footerCol { padding-right: 24px; }
+  .hubEmail { grid-area: email; margin-top: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
 }
 
 @media (max-width: 720px) {
@@ -256,11 +278,16 @@
   .footerCta { padding-bottom: 40px; }
   .footerCtaRow { flex-direction: column; }
   .footerCtaRow :global(.btn) { width: 100%; justify-content: space-between; }
-  .footerCols { grid-template-columns: 1fr; padding: 40px 0 24px; }
-  .footerHubCol { flex-direction: column; gap: 20px; padding-top: 24px; }
-  .hubEntry { min-width: unset; }
+  .footerCols { padding: 40px 0 24px; gap: 40px; }
+  .footerHubCol {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 32px;
+  }
   .hubRule { display: block; }
   .hubCityName { font-size: clamp(44px, 13vw, 72px); }
   .hubCityScript { font-size: clamp(18px, 5vw, 28px); }
+  .footerLeft { gap: 36px; }
   .footerBaseline { flex-direction: column; gap: 8px; }
 }

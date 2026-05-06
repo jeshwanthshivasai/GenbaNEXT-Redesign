@@ -41,31 +41,29 @@ export default function FooterSection() {
       </div>
 
       <div className={styles.footerCols}>
-        {/* ── Index ── */}
-        <div className={styles.footerCol}>
-          <span className="mono opacity-70">— Index</span>
-          {INDEX_LINKS.map(({ n, label, href }) => (
-            <a key={n} href={href} className={styles.indexRow}>
-              <span className={styles.indexNum}>{n}</span>
-              <span className={styles.indexLabel}>{label}</span>
-              <span className={styles.indexArrow}>→</span>
-            </a>
-          ))}
-        </div>
 
-        {/* ── Verticals ── */}
-        <div className={styles.footerCol}>
-          <span className="mono opacity-70">— Verticals</span>
-          <div className={styles.footerVerticals}>
-            {VERTICALS.map((v) => (
-              <a key={v} href="#" className={styles.verticalRow}>
-                {v}
+        {/* ── Left: Index stacked above Verticals ── */}
+        <div className={styles.footerLeft}>
+          <div className={styles.footerSection}>
+            <span className="mono opacity-70">— Index</span>
+            {INDEX_LINKS.map(({ n, label, href }) => (
+              <a key={n} href={href} className={styles.indexRow}>
+                <span className={styles.indexNum}>{n}</span>
+                <span className={styles.indexLabel}>{label}</span>
+                <span className={styles.indexArrow}>→</span>
               </a>
+            ))}
+          </div>
+
+          <div className={styles.footerSection}>
+            <span className="mono opacity-70">— Verticals</span>
+            {VERTICALS.map((v) => (
+              <a key={v} href="#" className={styles.verticalRow}>{v}</a>
             ))}
           </div>
         </div>
 
-        {/* ── Hubs — dominant feature column ── */}
+        {/* ── Right: Hubs dominant ── */}
         <div className={styles.footerHubCol}>
           <span className="mono opacity-70">— Hubs</span>
 
@@ -90,9 +88,11 @@ export default function FooterSection() {
           </div>
 
           <a href="mailto:info@genbanext.com" className={styles.hubEmail}>
-            info@genbanext.com
+            <span className={styles.hubEmailArrow}>→</span>
+            <span>info@genbanext.com</span>
           </a>
         </div>
+
       </div>
 
       <div className={styles.footerBaseline}>
