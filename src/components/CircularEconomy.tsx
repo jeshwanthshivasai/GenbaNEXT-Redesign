@@ -80,7 +80,7 @@ export default function CircularEconomy() {
                   return (
                     <g key={s.id} transform={`translate(${x}, ${y})`}>
                       <circle
-                        r={isActive ? 12 : 6}
+                        r={isActive ? 12 : 8}
                         fill={isActive ? 'var(--blue)' : 'var(--paper)'}
                         stroke="var(--ink)"
                         strokeWidth="1"
