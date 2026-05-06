@@ -40,7 +40,7 @@
   transform: translate(-50%, -50%);
   font-family: var(--sans);
   font-weight: 200;
-  font-size: clamp(220px, 38vw, 540px);
+  font-size: clamp(220px, 38vw, 480px);
   line-height: 1;
   color: var(--blue);
   z-index: 1;
