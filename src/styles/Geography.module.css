@@ -27,7 +27,7 @@
 .geographyMap {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 2.09 / 1;
   border: 1px solid var(--rule-soft);
   overflow: hidden;
 }
@@ -95,6 +95,7 @@
 .geographyLegend {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 48px;
 }
 .legendCol {
