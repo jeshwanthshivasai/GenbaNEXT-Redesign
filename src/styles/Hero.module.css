@@ -36,7 +36,7 @@
 
 .heroKanji {
   position: absolute;
-  right: 320px;
+  right: 60px;
   top: 50%;
   --kanji-x: 0px;
   text-align: center;
@@ -82,46 +82,15 @@
   justify-content: space-between;
 }
 
-.scrollHint {
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-.scrollHint:hover {
-  transform: translateY(2px);
-  opacity: 0.85;
-}
-
-.heroRing {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 360px;
-  height: 360px;
-  color: var(--ink);
-  z-index: 2;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-@keyframes ringSpin {
-  to { transform: rotate(360deg); }
-}
-
-.ringSpin {
-  transform-origin: center;
-  animation: ringSpin 60s linear infinite;
-}
-
 @media (max-width: 1280px) {
-  .heroRing { width: 280px; height: 280px; right: 28px; opacity: 0.45; }
   .heroActions { max-width: 480px; }
+  .heroKanji { right: 40px; }
 }
 
 @media (max-width: 1024px) {
   .heroStack { padding: 0 28px; gap: 28px; }
   .heroMetaTl, .heroMetaBl { left: 28px; }
   .heroMetaTr { right: 28px; }
-  .heroRing { display: none; }
   .heroKanji { right: auto; left: 50%; --kanji-x: -50%; }
 }
 

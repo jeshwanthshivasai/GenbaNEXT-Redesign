@@ -59,27 +59,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className={styles.heroRing} aria-hidden="true">
-        <svg viewBox="-100 -100 200 200">
-          <circle cx="0" cy="0" r="92" fill="none" stroke="currentColor" strokeWidth="0.4" opacity="0.4" />
-          <circle cx="0" cy="0" r="80" fill="none" stroke="currentColor" strokeWidth="0.4" opacity="0.3" />
-          <circle cx="0" cy="0" r="68" fill="none" stroke="currentColor" strokeWidth="0.4" opacity="0.2" />
-          <g className={styles.ringSpin}>
-            {Array.from({ length: 36 }).map((_, i) => (
-              <line
-                key={i}
-                x1="0"
-                y1="-92"
-                x2="0"
-                y2="-86"
-                stroke="currentColor"
-                strokeWidth="0.5"
-                transform={`rotate(${i * 10})`}
-              />
-            ))}
-          </g>
-        </svg>
-      </div>
     </section>
   );
 }
