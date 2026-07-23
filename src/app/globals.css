@@ -104,18 +104,20 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   gap: 12px;
   padding: 14px 22px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--blue);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: all 200ms var(--easing);
-  background: transparent;
-  color: var(--ink);
+  background: var(--blue-soft);
+  color: var(--blue);
 }
 .btn:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(27, 79, 224, 0.25);
 }
 .btn .arrow {
   flex-shrink: 0;
@@ -136,10 +138,17 @@ img, svg { display: block; max-width: 100%; }
 .btn:hover .arrow { width: 24px; }
 
 .btn-ink {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(27, 79, 224, 0.2);
 }
-.btn-ink:hover { background: var(--blue); border-color: var(--blue); color: var(--paper); }
+.btn-ink:hover {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(10, 43, 168, 0.35);
+}
 
 /* fade-in-up base */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 800ms var(--easing), transform 800ms var(--easing); }

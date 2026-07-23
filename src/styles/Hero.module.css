@@ -74,7 +74,20 @@
 .heroActions {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  width: 100%;
+  max-width: 580px;
+}
+.heroActions :global(.btn) {
+  flex: 1;
+  justify-content: space-between;
+}
+
+.scrollHint {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.scrollHint:hover {
+  transform: translateY(2px);
+  opacity: 0.85;
 }
 
 .heroRing {
@@ -101,6 +114,7 @@
 
 @media (max-width: 1280px) {
   .heroRing { width: 280px; height: 280px; right: 28px; opacity: 0.45; }
+  .heroActions { max-width: 480px; }
 }
 
 @media (max-width: 1024px) {
@@ -114,27 +128,20 @@
 @media (max-width: 720px) {
   .hero { min-height: 100svh; padding-top: 64px; }
   .heroStack { padding: 0 18px; gap: 24px; }
-  .heroMetaBl { left: 18px; }
-  .heroMetaBl { bottom: 24px; }
+  .heroMetaBl { left: 18px; bottom: 24px; }
   .heroTitle { font-size: clamp(48px, 16vw, 80px); }
-  .heroActions { width: 100%; flex-direction: column; }
-  .heroActions :global(.btn) { width: 100%; justify-content: space-between; }
+  .heroActions {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .heroActions :global(.btn) {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-size: 11px;
+  }
   .heroKanji { font-size: clamp(280px, 80vw, 480px); opacity: 0.12 !important; }
-  /* Stack Tokyo (TL) and Mumbai (TR) vertically, both left-aligned */
-  .heroMetaTl {
-    top: 60px;
-    left: 18px;
-  }
-  .heroMetaTr {
-    top: 96px;
-    left: 18px;
-    right: auto;
-    align-items: flex-start;
-    text-align: left;
-  }
-  /* Shrink coordinate text so it fits on one line at 375px */
-  .heroCoord {
-    font-size: 9px;
-    letter-spacing: 0.06em;
-  }
 }

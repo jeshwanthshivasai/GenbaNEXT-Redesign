@@ -3,29 +3,14 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/Hero.module.css';
 
-const fmt = (d: Date) => d.toTimeString().slice(0, 8);
-
 export default function HeroSection() {
-  const [time, setTime] = useState<Date | null>(null);
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    setTime(new Date());
-    const i = setInterval(() => setTime(new Date()), 1000);
     const onScroll = () => setScroll(window.scrollY);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      clearInterval(i);
-      window.removeEventListener('scroll', onScroll);
-    };
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const tokyo = time
-    ? new Date(time.getTime() + (9 * 60 + time.getTimezoneOffset()) * 60000)
-    : null;
-  const mumbai = time
-    ? new Date(time.getTime() + (5.5 * 60 + time.getTimezoneOffset()) * 60000)
-    : null;
 
   const heroOpacity = Math.max(0, 1 - scroll / 600);
   const heroY = scroll * 0.3;
@@ -38,15 +23,6 @@ export default function HeroSection() {
         <div className={styles.heroGridV} />
         <div className={styles.heroGridV} />
         <div className={styles.heroGridV} />
-      </div>
-
-      <div className={`${styles.heroMeta} ${styles.heroMetaTl}`}>
-        <span className={`mono opacity-70 ${styles.heroCoord}`}>[ N 35.6762° E 139.6503° ] TOKYO</span>
-        <span className="mono">{tokyo ? `${fmt(tokyo)} JST` : '—— JST'}</span>
-      </div>
-      <div className={`${styles.heroMeta} ${styles.heroMetaTr}`}>
-        <span className={`mono opacity-70 ${styles.heroCoord}`}>[ N 19.0760° E 72.8777° ] MUMBAI</span>
-        <span className="mono">{mumbai ? `${fmt(mumbai)} IST` : '—— IST'}</span>
       </div>
 
       <div
@@ -81,11 +57,6 @@ export default function HeroSection() {
             <span className="arrow"></span>
           </a>
         </div>
-      </div>
-
-      <div className={`${styles.heroMeta} ${styles.heroMetaBl}`}>
-        <span className="mono opacity-70">FR/2026.05.04</span>
-        <span className="mono opacity-70">v 1.0.0</span>
       </div>
 
       <div className={styles.heroRing} aria-hidden="true">
